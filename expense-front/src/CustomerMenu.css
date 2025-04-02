@@ -1,0 +1,105 @@
+/* Ensure the navbar is fixed at the top */
+.customer-navbar {
+  background-color: #1a1a2e; /* Dark background like admin menu */
+  padding: 15px 20px;
+  border-bottom: 3px solid #ff4500; /* Red underline */
+  position: fixed; /* Fix navbar at the top */
+  top: 0;
+  left: 0;
+  width: 100%; /* Full width */
+  z-index: 1000; /* Ensure it stays above other elements */
+}
+
+/* Ensure the body content does not get hidden under the navbar */
+body {
+  margin: 0;
+  padding: 0;
+  padding-top: 78px; /* Adjust this based on navbar height */
+}
+
+/* Styling for navbar elements */
+.customer-brand {
+  color: white;
+  font-weight: bold;
+  font-size: 22px;
+  margin: 0; /* Remove extra margin */
+  padding: 0; /* Remove extra padding */
+  text-align: left; /* Align text to the left */
+}
+
+.customer-navbar .nav-link {
+  color: white;
+  font-size: 18px;
+  margin-left: 20px;
+  transition: 0.3s;
+}
+
+.customer-navbar .nav-link:hover {
+  color: #ff4500;
+}
+
+/* Styling for dropdown */
+.customer-dropdown .dropdown-menu {
+  background-color: white;
+}
+
+.customer-dropdown-item {
+  color: black !important;
+}
+
+.customer-dropdown-item:hover {
+  background-color: lightgray;
+}
+
+/* Logout button styling */
+.logout-link {
+  cursor: pointer;
+  font-weight: bold;
+  color: white;
+  transition: 0.3s;
+}
+
+.logout-link:hover {
+  color: #ff4500;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 80px); /* Adjust height considering navbar */
+}
+
+.background-image {
+  max-width: 100%;
+  max-height: 100.5%;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw; /* Full viewport width */
+  height: calc(100vh - 80px); /* Full viewport height minus navbar */
+  overflow: hidden; /* Prevents any scrollbars */
+  position: relative;
+}
+
+.background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the entire container */
+  border-radius: 0; /* Optional: Remove rounded corners */
+  box-shadow: none; /* Optional: Remove shadow for a cleaner look */
+}
+
+.navbar-username {
+  color: white; /* Same color as navbar links */
+  font-size: 18px; /* Same font size as navbar links */
+  font-weight: bold;
+  position: absolute;
+  left: 30%;
+  transform: translateX(-50%);
+  white-space: nowrap; /* Prevents text from breaking into multiple lines */
+}
