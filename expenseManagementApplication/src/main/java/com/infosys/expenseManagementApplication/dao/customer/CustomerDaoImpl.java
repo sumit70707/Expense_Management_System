@@ -22,7 +22,7 @@ public class CustomerDaoImpl implements CustomerDao {
 
 	@Override
 	public Customer getCustomerById(String id) {
-		// System.out.println("Fetching customer with ID: " + id);
+	//System.out.println("Fetching customer with ID: " + id);
 		return repo.findById(id).get();
 	}
 

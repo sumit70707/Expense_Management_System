@@ -86,16 +86,16 @@ public class CustomerController {
 		return customerDao.getCurrentCustomers();
 		
 	}
-	@PostMapping("/getCustomerIdByEmail")
-	public String getCustomerIdByEmail(@RequestBody Map<String, String> requestData) {
-	    String email = requestData.get("email");
-	    if (email == null || email.isEmpty()) {
-	        return null;
-	    }
-	    
-	    Customer customer = customerDao.getCustomerByEmail(email); // Get the Customer object
-	    return (customer != null) ? customer.getCustomerId() : null; // Extract customerId and return
-	}
+//	@PostMapping("/getCustomerIdByEmail")
+//	public String getCustomerIdByEmail(@RequestBody Map<String, String> requestData) {
+//	    String email = requestData.get("email");
+//	    if (email == null || email.isEmpty()) {
+//	        return null;
+//	    }
+//	    
+//	    Customer customer = customerDao.getCustomerByEmail(email); // Get the Customer object
+//	    return (customer != null) ? customer.getCustomerId() : null; // Extract customerId and return
+//	}
 
 
 	

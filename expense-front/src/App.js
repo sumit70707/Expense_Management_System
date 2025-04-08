@@ -17,9 +17,9 @@ import CustomerCurrent from "./Components/CustomerComponent/CustomerCurrent";
 import ExpenseEntry from "./Components/ExpenseComponent/ExpenseEntry";
 import ExpenseList from "./Components/ExpenseComponent/ExpenseList";
 import ExpenseUpdate from "./Components/ExpenseComponent/ExpenseUpdate";
-import ExpenseReport from "./Components/ExpenseComponent/ExpenseReport";
 import CategoryExpenseEntry from "./Components/ExpenseComponent/CategoryExpenseEntry";
-
+import ExpenseAnalysis from "./Components/ExpenseComponent/ExpenseAnalysis";
+import ExpenseReportWithAnalysis from "./Components/ExpenseComponent/ExpenseReportWithAnalysis";
 
 function App() {
   return (
@@ -45,8 +45,9 @@ function App() {
       <Route path='/expense-entry' element={<ExpenseEntry />} />
       <Route path='/expense-list' element={<ExpenseList />} />
       <Route path='/update-expense/:id' element={<ExpenseUpdate />} />
-      <Route path='/expense-report-pdf' element={<ExpenseReport/>} />
       <Route path='/category-expense-entry/:categoryId' element={<CategoryExpenseEntry />} />
+      <Route path='/expense-analysis' element={<ExpenseAnalysis/>} />
+      <Route path='/expense-report-cust' element={<ExpenseReportWithAnalysis/>} />      
 
       </>
       </Route>

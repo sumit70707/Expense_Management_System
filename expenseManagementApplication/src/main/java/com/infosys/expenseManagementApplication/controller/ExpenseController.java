@@ -103,16 +103,30 @@ public class ExpenseController {
 	
 	@GetMapping("/report")
 	public List<CustomerExpense> getCustomerExpenseById() {
-	    String userId = service.getUserId();
-	    Customer customer = customerDao.getCustomerByUsername(userId);
-	    String customerId = customer.getCustomerId();
-	    return customerService.getCategorywiseCustomerExpense(customerId);
+//	    String userId = service.getUserId();
+//	    Customer customer = customerDao.getCustomerByUsername(userId);
+//	    String customerId = customer.getCustomerId();
+//	    return customerService.getCategorywiseCustomerExpense(customerId);
+		try {
+	        String userId = service.getUserId();
+	        Customer customer = customerDao.getCustomerByUsername(userId);
+
+	        if (customer == null) {
+	            System.out.println("Customer Data not found for user ID: " + userId); 
+	            return Collections.emptyList(); 
+	        }
+
+	        String customerId = customer.getCustomerId();
+	        return customerService.getCategorywiseCustomerExpense(customerId);
+	    } catch (Exception e) {
+	        System.out.println("An error occurred: " + e.getMessage()); 
+	        return Collections.emptyList(); 
+	    }
 	}
 
 	@GetMapping("/report/{id}")
 	public List<CustomerExpense> getCustomerExpenseById(@PathVariable String id) {
 	    return customerService.getCategorywiseCustomerExpense(id);
 	}
-
 	
 }

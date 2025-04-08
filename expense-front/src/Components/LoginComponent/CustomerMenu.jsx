@@ -31,8 +31,9 @@ const CustomerMenu = () => {
             <NavDropdown title="Expense" id="customer-expense-dropdown" className="customer-dropdown">
               <NavDropdown.Item href="/expense-entry" className="customer-dropdown-item">Expense Entry</NavDropdown.Item>
               <NavDropdown.Item href="/expense-list" className="customer-dropdown-item">Expense List</NavDropdown.Item>
-              <NavDropdown.Item href="/expense-report-pdf" className="customer-dropdown-item">Expense Report</NavDropdown.Item>
               <NavDropdown.Item href="/customer-category-list" className="customer-dropdown-item">Category List</NavDropdown.Item>
+              <NavDropdown.Item href="/expense-analysis" className="customer-dropdown-item">Expense Analysis</NavDropdown.Item>
+              <NavDropdown.Item href="/expense-report-cust" className="customer-dropdown-item"> Expense Report </NavDropdown.Item>
             </NavDropdown>
             <Nav.Link className="navbar-username">Welcome {username}...</Nav.Link>
             <Nav.Link onClick={logoutHandler}>Logout</Nav.Link>

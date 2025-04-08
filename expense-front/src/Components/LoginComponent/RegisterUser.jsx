@@ -12,23 +12,50 @@ const RegisterUser = () => {
     });
 
     const [password2, setPassword2] = useState("");
+    const [errors, setErrors] = useState({});
     let navigate = useNavigate();
+
+    const validateForm = () => {
+        let formErrors = {};
+
+        if (!expenseUser.username.trim()) {
+            formErrors.username = "Username is required!";
+        }
+
+        if (!expenseUser.password) {
+            formErrors.password = "Password is required!";
+        } else if (expenseUser.password.length < 5 || expenseUser.password.length > 10) {
+            formErrors.password = "Password must be 5 to 10 characters long!";
+        }
+
+        if (!password2) {
+            formErrors.password2 = "Please confirm your password!";
+        } else if (expenseUser.password !== password2) {
+            formErrors.password2 = "Passwords do not match!";
+        }
+
+        if (!expenseUser.email.trim()) {
+            formErrors.email = "Email is required!";
+        } else if (!/\S+@\S+\.\S+/.test(expenseUser.email)) {
+            formErrors.email = "Invalid email format!";
+        }
+
+        if (!expenseUser.category) {
+            formErrors.category = "Please select a category!";
+        }
+
+        setErrors(formErrors);
+        return Object.keys(formErrors).length === 0;
+    };
 
     const saveNewUser = (event) => {
         event.preventDefault();
-        if (expenseUser.password.length < 5 || expenseUser.password.length > 10) {
-            alert("Password must be between 5 to 10 characters long");
-            return;
-        }
-        if (expenseUser.password === password2) {
-            registerNewUser(expenseUser).then(() => {
-                alert("User is registered successfully! Please log in.");
-                navigate("/");
-            });
-        } else {
-            alert("Passwords do not match");
-            return;
-        }
+        if (!validateForm()) return;
+
+        registerNewUser(expenseUser).then(() => {
+            alert("User is registered successfully! Please log in.");
+            navigate("/");
+        });
     };
 
     const onChangeHandler = (event) => {
@@ -49,9 +76,10 @@ const RegisterUser = () => {
                             className="form-control"
                             value={expenseUser.username}
                             onChange={onChangeHandler}
-                            required
                         />
+                        {errors.username && <p style={{ color: "red", fontSize: "14px" }}>{errors.username}</p>}
                     </div>
+
                     <div className="form-group">
                         <input
                             type="password"
@@ -60,9 +88,10 @@ const RegisterUser = () => {
                             className="form-control"
                             value={expenseUser.password}
                             onChange={onChangeHandler}
-                            required
                         />
+                        {errors.password && <p style={{ color: "red", fontSize: "14px" }}>{errors.password}</p>}
                     </div>
+
                     <div className="form-group">
                         <input
                             type="password"
@@ -70,9 +99,10 @@ const RegisterUser = () => {
                             className="form-control"
                             value={password2}
                             onChange={(e) => setPassword2(e.target.value)}
-                            required
                         />
+                        {errors.password2 && <p style={{ color: "red", fontSize: "14px" }}>{errors.password2}</p>}
                     </div>
+
                     <div className="form-group">
                         <input
                             type="email"
@@ -81,9 +111,10 @@ const RegisterUser = () => {
                             className="form-control"
                             value={expenseUser.email}
                             onChange={onChangeHandler}
-                            required
                         />
+                        {errors.email && <p style={{ color: "red", fontSize: "14px" }}>{errors.email}</p>}
                     </div>
+
                     <div className="form-group">
                         <label>Select Category</label>
                         <select
@@ -91,14 +122,15 @@ const RegisterUser = () => {
                             className="form-control"
                             value={expenseUser.category}
                             onChange={onChangeHandler}
-                            required
                         >
                             <option value="">Choose...</option>
                             <option value="Customer">Customer</option>
                             <option value="Admin">Admin</option>
                         </select>
+                        {errors.category && <p style={{ color: "red", fontSize: "14px" }}>{errors.category}</p>}
                     </div>
-                    <button type="submit" className="btn btn-primary">
+
+                    <button type="submit" className="btn btn-primary w-100 mt-3">
                         Register
                     </button>
                 </form>
@@ -108,4 +140,3 @@ const RegisterUser = () => {
 };
 
 export default RegisterUser;
-

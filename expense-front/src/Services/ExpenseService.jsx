@@ -4,6 +4,7 @@ const EXPENSE_URL = 'http://localhost:9797/exp-mng/expense'
 const ID_URL = 'http://localhost:9797/exp-mng/expense-id'
 const CATEGORY_URL = 'http://localhost:9797/exp-mng/expense-category'
 const CUSTOMER_URL = 'http://localhost:9797/exp-mng/expense-customer'
+const REPO_URL = 'http://localhost:9797/exp-mng/report'
 
 
 
@@ -41,6 +42,14 @@ export const displayExpenseByCustomer = () => {
 
 export const getExpenseByCustomer = (id) => {
     return axios.get(CUSTOMER_URL+'/'+ id);
+}
+
+export const getExpenseReportByCustomer = () => {
+    return axios.get(REPO_URL);
+}
+
+export const getExpenseReportByCustomerId = (id) => {
+    return axios.get(REPO_URL+'/'+ id);
 }
 
 

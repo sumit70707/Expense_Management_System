@@ -10,7 +10,7 @@ const [customer,setCustomers]=useState({
     customerName:"",
     address:"",
     email:"",
-    mobile:0,
+    mobile:"",
     occupation:"",
     status:""
 });
@@ -19,8 +19,14 @@ const [customer,setCustomers]=useState({
 
     const setCustomerData=()=>{
         getCustomerByUsername().then((response) => {
-           
-            setCustomers(response.data);
+            if(!response.data){
+                alert("Please Complete Your Customer Registration.");
+                navigate('/CustomerMenu'); 
+                
+            }else{
+                setCustomers(response.data);
+            }
+            
                 });
 
     }
