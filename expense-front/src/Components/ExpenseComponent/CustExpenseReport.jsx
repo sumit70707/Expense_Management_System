@@ -8,7 +8,7 @@ import "../../LoginView.css";
 
 const COLORS = ["#0088FE", "#FF0000", "##FF0000", "#FF8042", "#A28FFF"];
 
-const ExpenseReportWithAnalysis = () => {
+const CustExpenseReport = () => {
   const [customer, setCustomer] = useState();
   const [CustomerExpenses, setCustomerExpense] = useState([]);
   const navigate = useNavigate();
@@ -163,4 +163,4 @@ const ExpenseReportWithAnalysis = () => {
   );
 };
 
-export default ExpenseReportWithAnalysis;
+export default CustExpenseReport;

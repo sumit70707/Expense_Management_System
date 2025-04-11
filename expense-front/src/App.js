@@ -18,8 +18,9 @@ import ExpenseEntry from "./Components/ExpenseComponent/ExpenseEntry";
 import ExpenseList from "./Components/ExpenseComponent/ExpenseList";
 import ExpenseUpdate from "./Components/ExpenseComponent/ExpenseUpdate";
 import CategoryExpenseEntry from "./Components/ExpenseComponent/CategoryExpenseEntry";
-import ExpenseAnalysis from "./Components/ExpenseComponent/ExpenseAnalysis";
-import ExpenseReportWithAnalysis from "./Components/ExpenseComponent/ExpenseReportWithAnalysis";
+import CustExpenseReport from "./Components/ExpenseComponent/CustExpenseReport";
+import AdminReport from "./Components/ExpenseComponent/AdminReport";
+import AdminExpenseReport from "./Components/ExpenseComponent/AdminExpenseReport";
 
 function App() {
   return (
@@ -46,8 +47,9 @@ function App() {
       <Route path='/expense-list' element={<ExpenseList />} />
       <Route path='/update-expense/:id' element={<ExpenseUpdate />} />
       <Route path='/category-expense-entry/:categoryId' element={<CategoryExpenseEntry />} />
-      <Route path='/expense-analysis' element={<ExpenseAnalysis/>} />
-      <Route path='/expense-report-cust' element={<ExpenseReportWithAnalysis/>} />      
+      <Route path='/expense-report-cust' element={<CustExpenseReport/>} />  
+      <Route path='/expense-report' element={<AdminReport/>} /> 
+      <Route path='/expense-report-admin/:customerId' element={<AdminExpenseReport/>} />         
 
       </>
       </Route>
